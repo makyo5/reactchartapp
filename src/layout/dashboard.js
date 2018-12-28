@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import XxkWorkStatic from '../component/xxkworkstatic';
 import { Row, Col } from 'antd';
+
+import {XxkWorkStatic,ECWorkStatics,ECWorkDayStatics} from '../component/xxkworkstatic';
 
 
 class Dashboard extends Component {
@@ -12,10 +13,10 @@ class Dashboard extends Component {
                         <XxkWorkStatic/>
                     </Col>
                     <Col span={6}>
-                        <XxkWorkStatic/>
+                        <ECWorkStatics />
                     </Col>
                     <Col span={6}>
-                        <XxkWorkStatic/>
+                        <ECWorkDayStatics/>
                     </Col>
                     <Col span={6}>
                         <XxkWorkStatic/>

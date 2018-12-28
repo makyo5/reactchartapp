@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@antv/data-set": "^0.10.1",
     "@antv/g2": "^3.4.8",
     "antd": "^3.11.4",
     "echarts": "^4.2.0-rc.2",
