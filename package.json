@@ -5,12 +5,16 @@
   "dependencies": {
     "@antv/g2": "^3.4.8",
     "antd": "^3.11.4",
+    "echarts": "^4.2.0-rc.2",
+    "echarts-for-react": "^2.0.15-beta.0",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "viser-react": "^2.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
