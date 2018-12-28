@@ -5,7 +5,7 @@ class XxkWorkStatic extends Component {
   render(){
     return (
       <div>
-        xxkworks
+        xxkworks Charts
       </div>
     )
   }
