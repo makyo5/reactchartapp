@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Button } from 'antd';
 import ReactEcharts from 'echarts-for-react';
-import { Chart, Tooltip, Axis, Legend, Line, Point } from 'viser-react';
+import { Chart, Tooltip, Axis, Legend, Line, SmoothLine, Point } from 'viser-react';
 
 
 const DataSet =require('@antv/data-set');
@@ -14,18 +14,34 @@ const clinicdata = [
   { name: '急诊外科', value: 141 },
   { name: '急诊内科', value: 234 },
   { name: '急诊儿科', value: 487 }
-]
+];
 const emclinicdaydata = [
-  { name: '急诊儿科', date: '2018-09', value: '544' },
-  { name: '急诊儿科', date: '2018-10', value: '429' },
-  { name: '急诊儿科', date: '2018-11', value: '586' },
-  { name: '急诊外科', date: '2018-09', value: '245' },
-  { name: '急诊外科', date: '2018-10', value: '348' },
-  { name: '急诊外科', date: '2018-11', value: '394' },
-  { name: '急诊内科', date: '2018-09', value: '264' },
-  { name: '急诊内科', date: '2018-10', value: '210' },
-  { name: '急诊内科', date: '2018-11', value: '329' },
-]
+  { date: '2018-08','急诊儿科': '674', '急诊外科': '145', '急诊内科': '574' },
+  { date: '2018-09','急诊儿科': '544', '急诊外科': '245', '急诊内科': '264' },
+  { date: '2018-10','急诊儿科': '429', '急诊外科': '348', '急诊内科': '210' },
+  { date: '2018-11','急诊儿科': '586', '急诊外科': '394', '急诊内科': '329' },
+];
+
+// const dv=new DataSet.View().source(emclinicdaydata);
+const ds = new DataSet();
+const dv = ds.createView().source(emclinicdaydata);
+dv.transform({
+  type: 'fold',
+  fields: ['急诊儿科','急诊外科','急诊内科'],
+  key: 'cliniclabel',
+  value: 'accounts'
+}).transform({
+  type: 'sort-by',
+  fields: ['accounts']
+});
+
+const data = dv.rows;
+
+const scale = [{
+  dataKey: 'date',
+  min: 1,
+  max: 800,
+}];
 
 
 class XxkWorkStatic extends Component {
@@ -75,7 +91,7 @@ class XxkWorkStatic extends Component {
       <div>
         <ReactEcharts
           option={this.getTestOption()}
-          height={300}
+          style={{height:'200px'}}
           />
       </div>
     )
@@ -107,7 +123,7 @@ class ECWorkStatics extends Component {
       <div>
         <ReactEcharts
           option={this.getECOption()}
-          height={300}
+          style={{height:'200px'}}
           />
       </div>
     )
@@ -116,43 +132,15 @@ class ECWorkStatics extends Component {
 
 class ECWorkDayStatics extends Component {
   
-  getECOption(){
-    const namedata=[]
-    const datedata=[];
-    const valuedata=[];
-    clinicdata.forEach(element => {
-      namedata.push(element.name);
-      datedata.push(element.date);
-      valuedata.push(element.value);
-    });
-
-    const option = {
-      legend: {
-        data: namedata
-      },
-      xAxis: {
-        type: 'category',
-        data: datedata
-      },
-      yAxis: {
-        type: 'value'
-      },
-      series: [
-        {
-          data: valuedata,
-          type: 'line'
-        }]
-    }
-    return option;
-  };
-
   render(){
     return (
       <div>
-        <ReactEcharts
-          option={this.getECOption()}
-          height={300}
-          />
+        <Chart forceFit height={200} data={data}>
+          <Tooltip />
+          <Axis />
+          <Legend />
+          <SmoothLine position="date*accounts" color="cliniclabel" />
+        </Chart>
       </div>
     )
   }
