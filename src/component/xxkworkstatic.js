@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Button } from 'antd';
 import ReactEcharts from 'echarts-for-react';
-import { Chart, Tooltip, Axis, Legend, Line, SmoothLine, Point } from 'viser-react';
+import { Chart, Tooltip, Axis, Legend, SmoothLine } from 'viser-react';
 
 
 const DataSet =require('@antv/data-set');
@@ -136,7 +136,7 @@ class ECWorkDayStatics extends Component {
     return (
       <div>
         <Chart forceFit height={200} data={data}>
-          <Tooltip />
+          <Tooltip offset={20} />
           <Axis />
           <Legend />
           <SmoothLine position="date*accounts" color="cliniclabel" />
@@ -145,6 +145,5 @@ class ECWorkDayStatics extends Component {
     )
   }
 }
-
 
 export {XxkWorkStatic, ECWorkStatics, ECWorkDayStatics};

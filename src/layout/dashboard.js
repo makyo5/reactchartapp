@@ -7,6 +7,8 @@ import {
   ECWorkDayStatics
 } from "../component/xxkworkstatic";
 
+import { ClinicDailyWorkStatic } from "../component/clinic/clinicstatus";
+
 class Dashboard extends Component {
   render() {
     return (
@@ -22,7 +24,7 @@ class Dashboard extends Component {
             <ECWorkDayStatics />
           </Col>
           <Col span={6}>
-            <XxkWorkStatic />
+            <ClinicDailyWorkStatic />
           </Col>
         </Row>
       </div>
