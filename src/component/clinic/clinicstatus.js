@@ -10,7 +10,6 @@ import {
 } from 'viser-react';
 import * as DataSet from "@antv/data-set";
 import * as request from "request";
-import * as sa from 'superagent';
 import * as ax from 'axios';
 
 
@@ -36,16 +35,6 @@ class ClinicTodayWorkStatic extends Component {
       ClinicTodayPieDataisLoad: false
     };
   }
-
-  // ClinicTodayCounts=()=>{
-  //   ax.get(apiurl[0])
-  //   .then((res)=>{
-  //     this.setState({
-  //       ClinicTodayPieData: res.data
-  //     })
-  
-  //   })
-  // }
   
   componentDidMount() {
     const _this=this;
