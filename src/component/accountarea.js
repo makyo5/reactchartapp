@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 
 class AccountArea extends Component {
-    render(){
+    
+    render() {
+        
+        const { counter, increment } = this.props;
+
         return (
             <div>
                 Please login
