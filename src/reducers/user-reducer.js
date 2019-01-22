@@ -1,9 +1,14 @@
-import { DECREMENT_COUNTER } from '../actions';
+import {
+  USER_LOGIN_IN,
+  USER_LOGIN_OUT
+} from '../actions';
 
-export function counter(state = 0, action) {
+export function counter(state = [], action) {
   switch (action.type) {
-    case DECREMENT_COUNTER:
-      return state - 1;
+    case USER_LOGIN_IN:
+      return state = 100;
+    case USER_LOGIN_OUT:
+      return state = 0;
     default:
       return state;
   }

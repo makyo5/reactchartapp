@@ -7,7 +7,7 @@ import {
   ECWorkDayStatics
 } from "../component/xxkworkstatic";
 
-import { ClinicTodayWorkStatic } from "../component/clinic/clinicstatus";
+import { ClinicTodayWorkStatic, ClinicVisitNowStatus } from "../component/clinic/clinicstatus";
 
 class Dashboard extends Component {
   render() {
@@ -28,8 +28,8 @@ class Dashboard extends Component {
           </Col>
         </Row>
         <Row>
-          <Col span={12}>
-            12
+          <Col>
+            <ClinicVisitNowStatus />
           </Col>
           <Col span={12}>
             12

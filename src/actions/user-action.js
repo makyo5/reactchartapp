@@ -1,14 +1,27 @@
+export const USER_LOGIN_IN = 'USER_LOGIN_IN';
+export const USER_LOGIN_OUT = 'USER_LOGIN_OUT';
 
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
+// export function decrement() {
+//   return {
+//     type: DECREMENT_COUNTER
+//   }
+// }
+// export function increment() {
+//   return {
+//     type: INCREMENT_COUNTER
+//   }
+// }
 
-export function decrement() {
+export const userLoginIn = () => {
   return {
-    type: DECREMENT_COUNTER
+    type: USER_LOGIN_IN,
+    text: "user is login in now"
   }
 }
-export function increment() {
+
+export const userLoginOut = () => {
   return {
-    type: INCREMENT_COUNTER
+    type: USER_LOGIN_OUT,
+    text: "user login out now"
   }
 }
